@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolphin CRM</title>
+    <link rel="stylesheet" href="dolphin_crm.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dolphin CRM</h1>
+        </header>
+        <main>
+            <section id="login">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+            <section id="contacts" class="hidden">
+                <h2>Contacts</h2>
+                <button id="addContactBtn">Add Contact</button>
+                <div id="contactList"></div>
+            </section>
+            <section id="notes" class="hidden">
+                <h2>Notes</h2>
+                <textarea id="noteInput" placeholder="Write your notes here..."></textarea>
+                <button id="saveNoteBtn">Save Note</button>
+                <div id="noteList"></div>
+            </section>
+        </main>
+    </div>
+    <script src="dolphin_crm.js"></script>
+</body>
+</html>
