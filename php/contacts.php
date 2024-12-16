@@ -1,8 +1,8 @@
 <?php
 
 $host = "localhost";
-$username = "proj2_user";
-$password = "groupbest1234";
+$username = "";
+$password = "";
 $dbname = "dolphin_crm";
 $options = '<option value=""></option>';
 
