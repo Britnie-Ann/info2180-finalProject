@@ -1,0 +1,109 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fc; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Header Section (Full Width) */
+.header {
+  background-color: #002855; /* Navy Blue */
+  color: white;
+  width: 100%;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Full-Page Form Styling */
+.login-form {
+  margin-top: 100px; /* Space below the header */
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #002855;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Login Button */
+button {
+  width: 100%;
+  background-color: #4c8bf5;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3a76d8;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}

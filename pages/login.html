@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Dolphin CRM</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <!-- Header Section (Outside the container) -->
+    <div class="header">
+      <img
+        src="../images/Dolphinlogo.png"
+        alt="Dolphin CRM Logo"
+        class="logo"
+      />
+      <h1>Dolphin CRM</h1>
+    </div>
+
+    <!-- Login Container -->
+    <div class="container">
+      <div class="login-form">
+        <div class="icon">
+          <img src="../images/usericon.png" alt="User Icon" />
+        </div>
+        <h2>Login</h2>
+        <form method="POST" action="../php/login.php">
+          <label for="email">Email Address:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="e.g. user@dolphin.com"
+            required
+          />
+
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="e.g. pass"
+            required
+          />
+
+          <button type="submit">LOGIN</button>
+        </form>
+      </div>
+      <footer>
+        <p>Copyright &copy; 2024 Dolphin CRM</p>
+      </footer>
+    </div>
+  </body>
+</html>

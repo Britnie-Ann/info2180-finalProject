@@ -1,0 +1,297 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fc;
+  color: #333;
+  display: flex;
+}
+
+/* Header */
+.header {
+  background-color: #002855;
+  color: white;
+  width: 100%;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.header img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #002855;
+  color: white;
+  width: 250px;
+  height: 100vh;
+  padding-top: 60px;
+  position: fixed;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+  background-color: #4c8bf5;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px);
+  margin-top: 80px;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align elements to the top */
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.header-section h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  gap: 10px;
+  margin-bottom: 10px; /* Add spacing under the name */
+  flex: 1 0 100%; /* Force it to take full width */
+}
+
+.header-section h1 i {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Info Text: Created and Updated Dates */
+.info-text {
+  flex: 1 0 100%; /* Place below the header name */
+  margin-bottom: 10px;
+}
+
+.info-text p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* Align buttons to the left */
+  margin-top: 10px; /* Add spacing after info */
+}
+
+.assign-btn,
+.switch-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Assign Button */
+.assign-btn {
+  background-color: #ffd000; /* Yellow */
+  color: #000;
+}
+
+.assign-btn:hover {
+  background-color: #e0a800;
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Switch Button */
+.switch-btn.support {
+  background-color: #007bff; /* Blue for Support */
+}
+
+.switch-btn.sales-lead {
+  background-color: #6f42c1; /* Purple for Sales Lead */
+}
+
+.switch-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Contact Info Section */
+.contact-info-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-column {
+  flex: 1;
+  margin: 10px 0;
+}
+
+.contact-column p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.contact-column span {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Notes Section */
+.notes {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notes h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.note {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.note p {
+  margin: 5px 0;
+}
+
+.note small {
+  color: #888;
+}
+
+/* Add Note Section */
+.add-note {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.save-btn {
+  background-color: #4c8bf5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #3a76d8;
+}
+
+/* Messages */
+.message-container {
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-message,
+.success-message {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+}
+
+.error-message {
+  color: red;
+  background-color: #ffecec;
+  border: 1px solid #f5aca6;
+}
+
+.success-message {
+  color: green;
+  background-color: #e9f6e9;
+  border: 1px solid #b2d8b2;
+}
+
+/* Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-group {
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .contact-details {
+    flex-direction: column;
+  }
+}
