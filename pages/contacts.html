@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/contacts.css">
+    <script src="../script/contacts.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>New Contact</title>
+</head>
+<body>
+   
+    <header>
+        <?php
+            session_start();
+            include '../php/header.php';
+        ?>
+    </header>
+
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Create a New Contact</h1>
+            <p>Fill in the form below to add a new contact to the system.</p>
+        </div>
+
+        <form id="contacts-form" class="contact-form">
+           
+            <div class="form-group">
+                <label for="title">Title</label>
+                <select id="title" name="title" required>
+                    <option value="">Select a Title</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Mrs">Mrs</option>
+                </select>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" name="fname" id="first_name" placeholder="Enter First Name" required>
+            </div>
+
+       
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="lname" id="last_name" placeholder="Enter Last Name" required>
+            </div>
+
+          
+            <div class="form-group">
+                <label for="email_address">Email</label>
+                <input type="email" name="email" id="email_address" placeholder="yourname@example.com" required>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="telephone_num">Telephone (Format: 876-123-4567)</label>
+                <input type="tel" name="t_phone" id="telephone_num" placeholder="876-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" name="company" id="company" placeholder="Enter Company Name" required>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select id="type" name="type" required>
+                    <option value="">Select Type</option>
+                    <option value="Sales Lead">Sales Lead</option>
+                    <option value="Support">Support</option>
+                </select>
+            </div>
+
+          
+            <div class="form-group">
+                <label for="assign_user">Assigned To</label>
+                <select id="assign_user" name="assign_user" required>
+                    <option value="">Select User</option>
+                </select>
+            </div>
+
+            
+            <button type="button" class="submit-btn" onclick="submitForm()">Add Contact</button>
+        </form>
+
+       
+        <div id="text" class="popup">
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+       
+        function submitForm() {
+            var formData = $("#contacts-form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "../php/contacts.php",
+                data: formData,
+                success: function(response) {
+                    $("#result").html(response);
+                    document.getElementById('text').style.display = 'block';
+                    loadPage(response);
+                },
+                error: function(error) {
+                    $("#result").html("An error occurred during form submission.");
+                }
+            });
+        }
+
+        function loadPage(response) {
+            setTimeout(function() {
+                if (response === "Contact Added Successfully!") {
+                    window.location.assign('../php/dashboard.php');
+                } else {
+                    window.location.assign('contacts.html');
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
