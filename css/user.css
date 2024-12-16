@@ -1,0 +1,40 @@
+body{
+    display: grid;
+    background-color: #f6f8f8   ;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+span{
+    grid-row: 1;
+    background-color: black;
+}
+
+
+#topSide{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 350px 350px 350px 350px;
+    grid-template-rows: 50px 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px
+}
+
+th{
+    background-color: #95a1a5;
+}
+
+button{
+    grid-column: 4;
+    background-color: #068cb7;
+    padding: 0;
+}
