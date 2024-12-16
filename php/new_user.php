@@ -2,8 +2,8 @@
 session_start();
 
 $host = 'localhost';
-$username = 'proj2_user';
-$password = 'groupbest1234';
+$username = '';
+$password = '';
 $dbname = 'dolphin_crm';
 
 $firstName = $_POST["firstName"] ?? '';
