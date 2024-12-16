@@ -43,7 +43,7 @@ $result = $conn->query($query);
             <ul>
                 <li><a href="dashboard.php" class="active">Home</a></li>
                 <li><a href="contacts.php">New Contact</a></li>
-                <li><a href="#">Users</a></li>
+                <li><a href="user.php">Users</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
