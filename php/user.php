@@ -1,35 +1,52 @@
 <?php
-session_start();
+// list_users.php
 
-$host = 'localhost';
-$username = '';
-$password = '';
-$dbname = 'dolphin_crm';
+// Include the database connection file
+require 'conn.php';
 
-$link = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-$search = $link->query("SELECT firstname,lastname,email,_role,created_at FROM Users");
-$users = $search->fetchAll(PDO::FETCH_ASSOC);
+
+// Execute the query to get all users
+$stmt = $conn->query("SELECT u.id AS user_id, CONCAT(u.first_name, ' ', u.last_name) AS full_name, u.email, u.role, DATE_FORMAT(u.created_at, '%Y-%m-%d') AS created_date 
+FROM users u");
+
+//Results
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
-<table>
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Role</th>
-            <th scope="col">Created</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($users as $user): ?>
-            <?php $name = $user['firstname'].= " ";
-            $name.= $user['lastname'];?>
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>User Details</title>
+		<!--css File-->
+		<link href="user.css" type="text/css" rel="stylesheet" />
+	</head>
+    <body>
+        <div id="topSide">
+            <h1 id="title">Users</h1>
+            <button id="addUser">Add User</button>
+        </div>
+
+        <!--Table containing user innformation-->
+        <table>
             <tr>
-                <td><?= $name ?></td>
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['_role'] ?></td>
-                <td><?= $user['created_at'] ?></td>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Date Created</th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+            <?php foreach($result as $row): ?>
+                <tr> 
+                    <td><?= $row['user_id'] ?></td>
+                    <td><?= $row['full_name'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['role'] ?></td>
+                    <td><?= $row['created date'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </body>
+</html>
