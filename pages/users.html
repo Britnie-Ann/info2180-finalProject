@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/users.css">
+    <script src="../script/users.js" type="text/javascript"></script>
+    <title>Users</title>
+</head>
+
+<header id="title">
+    <?php 
+        include '../php/header.php';
+        session_start();
+    ?>
+</header>
+
+<body>
+
+    <div class="users">
+    
+        <a href="new_user.html">
+            <button type="button" class="add-user">+Add User</button>
+        </a>
+
+        <h1>Users</h1>
+        
+        <div id="table"></div>
+    </div>
+</body>
+
+</html>
