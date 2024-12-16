@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/new_user.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>New User</title>
+</head>
+    <header>
+        <?php 
+            include '../php/header.php';
+            session_start();
+        ?>
+    </header>
+<body>
+
+    <div class="users">
+    <h1>New User</h1>
+
+        <form id="user-form">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <br>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            
+            <label for="role">Role</label>
+            <select id="role" name="role" required>
+                <option value=""></option>
+                <option value="Member">Member</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <br>
+            <button type="button" onclick="submitForm()">Save</button>
+        </form>
+        <div id="text" class="popup">
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            // Get form data
+            var formData = $("#user-form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "../php/new_user.php", // Specify your PHP processing file
+                data: formData,
+                success: function(response) {
+                    // Handle the response from the server
+                    $("#result").html(response);
+                    document.getElementById('text').style.display = 'block';
+                    var textresult = document.getElementById('result').innerHTML;
+                    loadPage(textresult);
+                },
+                error: function(error) {
+                    console.log(error);
+                    $("#result").html("An error occurred during form submission.");
+                }
+            });
+
+        function loadPage(response) {
+            setTimeout(function() {
+                switch (response) {
+                    case "User Added Successfully!":
+                        window.location.assign('../php/dashboard.php');
+                        break;
+                    case "Error Adding User!":
+                        window.location.assign('new_user.html');
+                        break;
+                    }
+        },2000);}}
+        </script>
+</body>
+</html>
